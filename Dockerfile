@@ -4,7 +4,7 @@ WORKDIR /deno
 
 RUN apt update && apt install -y git
 
-RUN git clone https://github.com/denoland/deno --depth=1 .
+RUN git clone https://github.com/denoland/deno --recurse-submodules --depth=1 .
 
 RUN cargo build -vv
 
