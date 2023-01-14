@@ -40,12 +40,27 @@ workflows:
       - build-amd64:
           context:
             - Docker builds
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only: /.*/
       - build-arm64:
           context:
             - Docker builds
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only: /.*/
       - push:
           requires:
             - build-amd64
             - build-arm64
           context:
             - Docker builds
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only: /.*/
