@@ -1,10 +1,10 @@
-FROM rust:1.66-bullseye as builder
+FROM rust:1.67-bullseye as builder
 
 WORKDIR /deno
 
 RUN apt update && apt install -y git
 
-RUN git clone https://github.com/denoland/deno --recurse-submodules --depth=1 --branch v1.29.3 .
+RUN git clone https://github.com/denoland/deno --recurse-submodules --depth=1 --branch v1.30.0 .
 
 RUN cargo build --release
 
